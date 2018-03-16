@@ -1,0 +1,593 @@
+<html>
+<head>
+    <title>Brian</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script>
+        function showValueCPU(newValue)
+        {
+            document.getElementById("rangeCPU").innerHTML=newValue;
+        }
+
+        function showValueMEM(newValue)
+        {
+            document.getElementById("rangeMEM").innerHTML=newValue;
+        }
+    </script>
+
+    <script>
+        function validateString(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+
+        function validateSummary(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateProjName(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateDetailDesc(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateHostName(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateWbsCode(x){
+            var re = /[A-Za-z -']$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateDueDate(x){
+            var re = /^\d{4}[\/\-](0?[1-9]|[12][0-9]|3[01])[\/\-](0?[1-9]|1[012])$/;
+            if(re.test(document.getElementById(x).value)){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateWorkQ(x){
+            if(document.getElementById(x).selectedIndex !== 0){
+                document.getElementById(x).style.borderColor ='#66cc00';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(102, 204, 0, 1)';
+                return true;
+            }else{
+                document.getElementById(x).style.borderColor ='#e35152';
+                document.getElementById(x).style.borderWidth = 1.5;
+                document.getElementById(x).style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                return false;
+            }
+        }
+
+        function validateNewInstallForm(){
+            var error = 0;
+            if(!validateSummary('summary')){
+                document.getElementById('summary').style.borderColor ='#e35152';
+                document.getElementById('summary').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('summary').focus();
+                error++;
+            }
+            if(!validateDueDate('dueDate')){
+                document.getElementById('dueDate').style.borderColor ='#e35152';
+                document.getElementById('dueDate').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('dueDate').focus();
+                error++;
+            }
+            if(!validateProjName('projName')){
+                document.getElementById('projName').style.borderColor ='#e35152';
+                document.getElementById('projName').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('projName').focus();
+                error++;
+            }
+            if(!validateWorkQ('workQ')){
+                document.getElementById('workQ').style.borderColor ='#e35152';
+                document.getElementById('workQ').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('workQ').focus();
+                error++;
+            }
+            if(!validateDetailDesc('detailDesc')){
+                document.getElementById('detailDesc').style.borderColor ='#e35152';
+                document.getElementById('detailDesc').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('detailDesc').focus();
+                error++;
+            }
+            if(!validateHostName('hostName')){
+                document.getElementById('hostName').style.borderColor ='#e35152';
+                document.getElementById('hostName').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('hostName').focus();
+                error++;
+            }
+            if(!validateWbsCode('wbsCode')){
+                document.getElementById('wbsCode').style.borderColor ='#e35152';
+                document.getElementById('wbsCode').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('wbsCode').focus();
+                error++;
+            }
+
+            if(error > 0){
+                return false;
+            }
+        }
+
+        function validateTroubleTicketForm(){
+            var error = 0;
+            if(!validateSummary('summary')){
+                document.getElementById('summary').style.borderColor ='#e35152';
+                document.getElementById('summary').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('summary').focus();
+                error++;
+            }
+            if(!validateDueDate('dueDate')){
+                document.getElementById('dueDate').style.borderColor ='#e35152';
+                document.getElementById('dueDate').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('dueDate').focus();
+                error++;
+            }
+            if(!validateProjName('projName')){
+                document.getElementById('projName').style.borderColor ='#e35152';
+                document.getElementById('projName').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('projName').focus();
+                error++;
+            }
+            if(!validateWorkQ('workQ')){
+                document.getElementById('workQ').style.borderColor ='#e35152';
+                document.getElementById('workQ').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('workQ').focus();
+                error++;
+            }
+            if(!validateDetailDesc('detailDesc')){
+                document.getElementById('detailDesc').style.borderColor ='#e35152';
+                document.getElementById('detailDesc').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('detailDesc').focus();
+                error++;
+            }
+            if(!validateWbsCode('wbsCode')){
+                document.getElementById('wbsCode').style.borderColor ='#e35152';
+                document.getElementById('wbsCode').style.boxShadow = '0 0 10px rgba(227, 81, 82, 1)';
+                document.getElementById('wbsCode').focus();
+                error++;
+            }
+
+            if(error > 0){
+                return false;
+            }
+        }
+    </script>
+
+    <style>
+        @import "compass/css3";
+
+        .help-block {
+            display: inline;
+        }
+
+        .degrees:after, .x_content, .x_panel {
+            position: relative;
+        }
+        .fa{
+            width: 26px;
+            opacity: .99;
+            display: inline-block;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: 400;
+            font-size: 18px;
+        }
+        .btn-primary{
+            background-color: #49166d;
+            border: none;
+        }
+        .btn-primary:hover{
+            background-color: #66cc00;
+        }
+        .jumbotron{
+            background-color: white;
+            color: #49166d;
+            margin-bottom:0;
+
+        }
+        .navbar {
+            background-color: #66cc00;
+            border-color: #66cc00;
+            font-size: 15px;
+        }
+        .nav.navbar-nav li a{
+            color: white;
+            font-weight: bold;
+        }
+        .btn-block{
+            padding-bottom: 10%;
+            padding-top: 10%;
+
+        }
+
+
+        #userPanel{
+            background: red;
+            width: 25%;
+            height: 100%;
+            float:right;
+            position: static;
+        }
+
+        #userNotifs{
+            background: green;
+            width: 50%;
+            height: 100%;
+        }
+        #userLink{
+        }
+
+        #rightside{
+            display: inline;
+            position: relative;
+            width: 100%;
+            height:100%;
+            right:0;
+        }
+
+        #topbar{
+            width: 100%;
+            height: 10%;
+            background: black;
+            color: #fff;
+            background: #272727;
+            position: relative;
+        }
+
+        #content{
+            width: 100%;
+            height: 100%;
+            background: #fafafa;
+            overflow : auto;
+            position: absolute;
+        }
+
+        .flex-inside-container{
+            padding: 5px;
+            margin: 0;
+            list-style: none;
+
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-flow: row wrap;
+            flex-direction:column-reverse;
+        }
+
+        .flex-container {
+            padding: 5px;
+            margin: 0;
+            list-style: none;
+
+            display: -webkit-box;
+            display: -moz-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+
+            -webkit-flex-flow: row wrap;
+            justify-content: space-around;
+
+        }
+
+        .flex-inside-item {
+            background: white;
+            padding: 5px;
+            width: 100%;
+            height: 10px;
+
+            align-self: flex-end;
+
+
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .flex-item {
+            background: tomato;
+            padding: 5px;
+            width: 49%;
+            height: 100%;
+            margin-top: 0;
+
+            line-height: 150px;
+            color: white;
+            font-weight: bold;
+            font-size: 15px;
+            text-align: center;
+        }
+
+
+        .wrapper {
+            display: flex;
+            align-items: stretch;
+            white-space:nowrap;
+            height: 100%;
+        }
+
+        #sidebar {
+            white-space: nowrap;
+            min-width: 15%;
+            max-width: 15%;
+            min-height: 100vh;
+            height: 100%;
+        }
+
+        #sidebar.active {
+            margin-left: -250px;
+        }
+
+        a[data-toggle="collapse"] {
+            position: relative;
+        }
+
+        a[aria-expanded="false"]::before, a[aria-expanded="true"]::before {
+            content: '\e259';
+            display: block;
+            position: absolute;
+            right: 20px;
+            font-family: 'Glyphicons Halflings';
+            font-size: 0.6em;
+        }
+
+        a[aria-expanded="true"]::before {
+            content: '\e260';
+        }
+
+
+        html body {
+            font-family: 'Poppins', sans-serif;
+            background: #fafafa;
+            min-width:1180px; !important;
+            overflow: hidden;
+        }
+
+        p {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.1em;
+            font-weight: 300;
+            line-height: 1.7em;
+            color: #999;
+        }
+
+        a, a:hover, a:focus {
+            color: inherit;
+            text-decoration: none;
+            transition: all 0.3s;
+        }
+
+        #sidebar {
+            /* don't forget to add all the previously mentioned styles here too */
+            background: #272727;
+            color: #fff;
+            transition: all 0.3s;
+            min-height:100%;
+        }
+
+        #sidebar .sidebar-header {
+            padding: 20px;
+            background: #272727;
+        }
+
+        #sidebar ul.components {
+            padding: 20px 0;
+            border-bottom: 1px solid #333;
+        }
+
+        #sidebar ul p {
+            color: #fff;
+            padding: 10px;
+        }
+
+        #sidebar ul li a {
+            padding: 10px;
+            font-size: 1.1em;
+            display: block;
+        }
+
+
+        #sidebar ul li a:hover {
+            color: #333;
+            background: #fff;
+        }
+
+        #sidebar ul li.active > a, a[aria-expanded="true"] {
+            color: #fff;
+            background: #333;
+        }
+
+
+        ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 30px !important;
+            background: #333;
+        }
+
+        ul ul ul a {
+            font-size: 0.9em !important;
+            padding-left: 35px !important;
+            background: #333;
+        }
+
+
+
+        .panel-default {
+            opacity: 0.9;
+            margin-top:30px;
+        }
+        .form-group.last {
+            margin-bottom:0px;
+        }
+
+
+        .form-container{
+            width:60%;
+            height:100%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            background-color: white;
+            border-color: white;
+            border-style: solid;
+            border-width: 1.5px;
+            border-radius: 15px 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+        }
+
+        .form-container-confirmation{
+            width:60%;
+            height:50%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 25px;
+            background-color: white;
+            border-color: white;
+            border-style: solid;
+            border-width: 1.5px;
+            border-radius: 15px 15px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+        }
+        .form-right{
+            height: 100%;
+            width: 15%;
+            background: red;
+        }
+        .form-left{
+            height: 100%;
+            width: 15%;
+        }
+
+        input.form-control{
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+            -webkit-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For I.E */
+            -moz-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For Mozilla Web Browser*/
+            border-radius:15px 15px;
+            -webkit-border-radius:5px;
+            /* For I.E */
+            -moz-border-radius:5px
+            /* For Mozilla Web Browser*/
+        }
+
+        textarea.form-control{
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+            -webkit-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For I.E */
+            -moz-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For Mozilla Web Browser*/
+            border-radius:15px 15px;
+            -webkit-border-radius:5px;
+            /* For I.E */
+            -moz-border-radius:5px
+            /* For Mozilla Web Browser*/
+        }
+
+        select.form-control{
+            box-shadow: 0 0 5px rgba(0,0,0,0.6);
+            -webkit-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For I.E */
+            -moz-box-shadow:0 0 5px rgba(0,0,0,0.6);
+            /* For Mozilla Web Browser*/
+            border-radius:15px 15px;
+            -webkit-border-radius:5px;
+            /* For I.E */
+            -moz-border-radius:5px
+            /* For Mozilla Web Browser*/
+        }
+    </style>
+
+
+</head>
+<body>
